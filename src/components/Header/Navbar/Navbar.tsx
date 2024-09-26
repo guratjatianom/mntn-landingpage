@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+// import Image from "next/image";
 import { PaddingContainer, Text } from '@/components/Common';
 
 export default function Navbar() {

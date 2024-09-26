@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { playfair_display, montserrat } from "./fonts/fonts";
+import Image from "next/image";
+import Pemandangan from "@/assets/Image/mntn.svg";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,9 +17,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair_display.variable} ${montserrat.variable} antialiased`}
+        className={`${playfair_display.variable} ${montserrat.variable} antialiased h-full`}
       >
-        {children}
+        <div className="absolute inset-0 z-0 w-full h-[4600px]">
+          <Image
+            src={Pemandangan}
+            alt="background image"
+            layout="fill"
+            objectFit="none"
+            quality={30}
+            className="z-0"
+          />
+        </div>
+        <div className="absolute inset-0 bg-black opacity-0 z-5">
+        </div>
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );

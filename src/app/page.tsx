@@ -1,9 +1,13 @@
-import Navbar from "@/components/Header/Navbar/Navbar";
+import Header from "@/components/Header/Header";
+import Content from "@/components/Content/Content";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      <Header />
+      <Content />
+      <Footer />
     </main>
-  )
+  );
 }
