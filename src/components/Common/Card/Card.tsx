@@ -6,7 +6,7 @@ import { Text } from "@/components/Common";
 
 export default function Card() {
   return (
-    <div className="pt-[1550px]">
+    <div className="pt-[1400px]">
       {DataCard.map((content, index) => (
         <div
           key={index}
@@ -18,7 +18,7 @@ export default function Card() {
                 <div className="relative z-10 pt-10">
                   <Text
                     size="h1"
-                    className="absolute text-[180px] leading-none font-bold opacity-20 -top-10 -left-10"
+                    className="absolute text-[180px] leading-none text-white font-bold opacity-10 -top-10 -left-10"
                   >
                     {index < 10 ? `0${index + 1}` : index + 1}
                   </Text>
@@ -51,8 +51,8 @@ export default function Card() {
                 <Image
                   src={content.image}
                   alt={content.title}
-                  width={466}
-                  height={620}
+                  width={360}
+                  height={500}
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -63,8 +63,8 @@ export default function Card() {
                 <Image
                   src={content.image}
                   alt={content.title}
-                  width={466}
-                  height={620}
+                  width={360}
+                  height={500}
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -72,7 +72,7 @@ export default function Card() {
                 <div className="relative z-10 pt-10 pl-10">
                   <Text
                     size="h1"
-                    className="absolute text-[180px] leading-none font-bold opacity-20 -top-10 -left-10"
+                    className="absolute text-[180px] leading-none text-white font-bold opacity-10 -top-10 -left-10"
                   >
                     {index < 10 ? `0${index + 1}` : index + 1}
                   </Text>

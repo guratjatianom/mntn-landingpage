@@ -16,10 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/favicon.ico"/>
       <body
         className={`${playfair_display.variable} ${montserrat.variable} antialiased h-full`}
       >
-        <div className="absolute inset-0 z-0 w-full h-[4600px]">
+        <div className="absolute inset-0 z-0 w-full h-[4300px]">
           <Image
             src={Pemandangan}
             alt="background image"
