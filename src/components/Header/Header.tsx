@@ -3,15 +3,28 @@ import React from "react";
 import { PaddingContainer, Text } from '@/components/Common';
 import Account from "@/assets/Image/account.svg";
 import Rectangle from "@/assets/Image/rectangle.svg";
+// import SimpleParallax from "simple-parallax-js";
 import Arrow from "@/assets/Image/arrow.svg";
 import Image from "next/image";
-import Slider from "./Slider";  
+import Slider from "./Slider";
 import FollowUs from "./FollowUs";
+import VGparallax from "@/assets/Image/Group.svg";
 
 export default function Header() {
     return (
         <div className="absolute top-0 inset-0">
             <PaddingContainer>
+                <Image
+                    src={VGparallax}
+                    alt=""
+                    objectFit="none"
+                    className="z-0 absolute left-0"
+                    style={{
+                        width: "100vw",
+                        height: "auto",
+                        top: "768px", // Posisi gambar tetap di 768px dari atas
+                    }}
+                />
                 <div className="flex w-[1150px] h-[25px] justify-between text-center items-center mt-[40px]">
                     <div className="flex h-[24px] w-[108px] text-center items-center">
                         <Text size="h3" className="text-white">MNTN</Text>

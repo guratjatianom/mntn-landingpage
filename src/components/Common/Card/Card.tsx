@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Rectangle from "@/assets/Image/rectangle.svg";
 import Right from "@/assets/Image/arrow_right.svg";
@@ -7,7 +8,7 @@ import { Text } from "@/components/Common";
 export default function Card() {
   return (
     <div className="pt-[1400px]">
-      {DataCard.map((content, index) => (
+      {DataCard.slice(0, 3).map((content, index) => (
         <div
           key={index}
           className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 pb-[200px] md:px-12"
@@ -20,7 +21,7 @@ export default function Card() {
                     size="h1"
                     className="absolute text-[180px] leading-none text-white font-bold opacity-10 -top-10 -left-10"
                   >
-                    {index < 10 ? `0${index + 1}` : index + 1}
+                    {index < 9 ? `0${index + 1}` : index + 1}
                   </Text>
                   <div className="pl-8">
                     <div className="flex pb-7">
@@ -74,7 +75,7 @@ export default function Card() {
                     size="h1"
                     className="absolute text-[180px] leading-none text-white font-bold opacity-10 -top-10 -left-10"
                   >
-                    {index < 10 ? `0${index + 1}` : index + 1}
+                    {index < 9 ? `0${index + 1}` : index + 1}
                   </Text>
                   <div className="pl-8">
                     <div className="flex pb-7">

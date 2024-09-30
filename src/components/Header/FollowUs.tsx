@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function FollowUs() {
     return (
         <div className="flex flex-col text-center items-center absolute w-auto h-auto top-[380px] left-[60px]">
-            <Text size="h7" className="text-center items-center transform rotate-90 text-white">
+            <Text size="h7" className="text-center items-center transform rotate-90 text-white cursor-pointer">
                 Follow us
             </Text>
             <div>

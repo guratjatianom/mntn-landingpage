@@ -3,7 +3,7 @@ import { Text } from "@/components/Common";
 
 export default function Footer() {
     return (
-        <div className="w-full  py-[50px] px-[150px]">
+        <div className="w-full py-[50px] px-[150px] ">
             <div className="flex justify-between items-start">
                 <div>
                     <div className="flex h-[24px] w-[108px] mb-[24px]">
@@ -18,7 +18,7 @@ export default function Footer() {
                         <Text size="h6">Copyright 2023 MNTN, Inc. Terms & Privacy</Text>
                     </div>
                 </div>
-                <div className="flex space-x-[70px]">
+                <div className="flex space-x-[50px]">
                     <div>
                         <div className="text-[#FBD784] mb-[16px]">
                             <Text size="h4">More on The Blog</Text>

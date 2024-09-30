@@ -1,32 +1,78 @@
-import React, { useState } from "react";
-import { Text } from '@/components/Common';
+"use client";
+import { Text } from "@/components/Common";
+import { useState, useEffect } from "react";
 
 export default function Slider() {
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const slides = ["01", "02", "03"];
-    const handleSlideChange = (index: number) => {
-        setCurrentSlide(index);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll(".section");
+    const observerOptions = {
+      root: null,
+      threshold: 0.5,
     };
 
-    return (
-        <div className="absolute right-[100px] top-[326px] w-[77px] h-[190px] flex flex-col justify-between items-center">
-            <Text size="h7" className="text-white">Start</Text>
-            <div className="flex flex-col items-center gap-8">
-                {slides.map((slide, index) => (
-                    <div
-                        key={index}
-                        onClick={() => handleSlideChange(index)}
-                        className="cursor-pointer"
-                    >
-                        <Text
-                            size="h7"
-                            className={`text-white ${currentSlide === index ? 'opacity-100' : 'opacity-50'} transition-opacity duration-300`}
-                        >
-                            {slide}
-                        </Text>
-                    </div>
-                ))}
-            </div>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.getAttribute("data-section"));
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      setScrollPosition(scrollPercent);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <div
+      className="fixed top-[380px] left-[1200px] transform -translate-y-1/2 flex flex-row items-center justify-center text-white w-[77px] z-10"
+    >
+      <div className="flex items-center space-y-4">
+        <div className="flex flex-col text-center mr-[15px] space-y-4">
+          <Text size="h8" className="font-bold pt-[15px] pb-[15px]">
+            Start
+          </Text>
+          {["01", "02", "03"].map((item, index) => (
+            <Text
+              key={index}
+              size="h8"
+              className={`font-bold pb-[20px] text-right ${
+                activeSection === item ? "opacity-100 font-extrabold" : "opacity-50"
+              }`}
+            >
+              {item}
+            </Text>
+          ))}
         </div>
-    );
+        <div className="relative h-[240px] w-[3px] bg-gray-300 opacity-100 ml-auto">
+          <div
+            className="absolute left-0 top-0 w-[3px] bg-white"
+            style={{
+              height: `${scrollPosition}%`,
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }
