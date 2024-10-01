@@ -1,9 +1,8 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PaddingContainer, Text } from '@/components/Common';
 import Account from "@/assets/Image/account.svg";
 import Rectangle from "@/assets/Image/rectangle.svg";
-// import SimpleParallax from "simple-parallax-js";
 import Arrow from "@/assets/Image/arrow.svg";
 import Image from "next/image";
 import Slider from "./Slider";
@@ -11,20 +10,38 @@ import FollowUs from "./FollowUs";
 import VGparallax from "@/assets/Image/Group.svg";
 
 export default function Header() {
+    const [imagePosition, setImagePosition] = useState(0); // State for image position
+
+    // Handle scroll for parallax effect
+    const handleScroll = () => {
+        const scrollTop = window.scrollY;
+        setImagePosition(scrollTop * 0.1); // Parallax speed adjustment
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
-        <div className="absolute top-0 inset-0">
+        <div className="relative top-0 inset-0">
             <PaddingContainer>
+                {/* Parallax background */}
                 <Image
                     src={VGparallax}
-                    alt=""
-                    objectFit="none"
+                    alt="parallax background"
                     className="z-0 absolute left-0"
                     style={{
                         width: "100vw",
                         height: "auto",
-                        top: "768px", // Posisi gambar tetap di 768px dari atas
+                        top: `calc(768px - ${imagePosition}px)`, // Adjust image position based on scroll
+                        transition: "top 0.1s ease-out",  // Smooth transition
                     }}
                 />
+                
                 <div className="flex w-[1150px] h-[25px] justify-between text-center items-center mt-[40px]">
                     <div className="flex h-[24px] w-[108px] text-center items-center">
                         <Text size="h3" className="text-white">MNTN</Text>
@@ -39,7 +56,9 @@ export default function Header() {
                         <Text size="h7" className="text-white ml-2 cursor-pointer">Account</Text>
                     </div>
                 </div>
+
                 <FollowUs />
+
                 <div>
                     <div className="absolute w-[650px] h-[200px] top-[287px] left-[420px] gap-[32px] mt-8">
                         <div className="flex">
@@ -53,6 +72,7 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
+
                 <Slider />
             </PaddingContainer>
         </div>
