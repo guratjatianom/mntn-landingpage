@@ -2,7 +2,7 @@ import Card from "@/components/Common/Card/Card";
 
 export default function Content() {
     return (
-        <div className="w-full flex justify-center items-center px-[150px] ">
+        <div className="relative z-10 w-full flex justify-center items-center lg:px-[90px] md:px-[50px] sm:px-[20px]">
             <Card />
         </div>
     );
