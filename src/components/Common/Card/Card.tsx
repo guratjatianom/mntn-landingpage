@@ -7,19 +7,19 @@ import { Text } from "@/components/Common";
 
 export default function Card() {
   return (
-    <div className="pt-[1400px]">
+    <div className="pt-[1100px] md:pt-[1400px]">
       {DataCard.slice(0, 3).map((content, index) => (
         <div
           key={index}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 pb-[200px] md:px-12 sm:pb-[100px] sm:px-6"
+          className="grid grid-cols-1 md:grid-cols-2 md:gap-12 md:pb-[200px] md:px-12 pb-[30px] px-6"
         >
           {index % 2 === 0 ? (
             <>
-              <div className="relative col-span-1">
+              <div className="relative col-span-1 order-2 md:order-none">
                 <div className="relative z-10 pt-10 sm:pt-5">
                   <Text
                     size="h1"
-                    className="absolute text-[100px] md:text-[180px] leading-none text-white opacity-10 -top-10 md:-top-20 -left-5 md:-left-10"
+                    className="absolute text-[100px] md:text-[180px] leading-none text-white opacity-10 -top-0 md:-top-20 -left-10 md:-left-10"
                   >
                     {index < 9 ? `0${index + 1}` : index + 1}
                   </Text>
@@ -48,32 +48,32 @@ export default function Card() {
                   </div>
                 </div>
               </div>
-              <div className="relative col-span-1">
+              <div className="relative col-span-1 order-1 md:order-none flex justify-center items-center">
                 <Image
                   src={content.image}
                   alt={content.title}
-                  width={360}
-                  height={500}
-                  className="w-full h-auto object-cover"
+                  width={150}
+                  height={200}
+                  className="md:w-[360px] md:h-[500px] object-cover"
                 />
               </div>
             </>
           ) : (
             <>
-              <div className="relative col-span-1">
+              <div className="relative col-span-1 order-1 md:order-none flex justify-center items-center">
                 <Image
                   src={content.image}
                   alt={content.title}
-                  width={360}
-                  height={500}
-                  className="w-full h-auto object-cover"
+                  width={150}
+                  height={200}
+                  className="md:w-[360px] md:h-[500px] object-cover"
                 />
               </div>
-              <div className="relative col-span-1">
+              <div className="relative col-span-1 order-2 md:order-none">
                 <div className="relative z-10 pt-10 pl-10 sm:pt-5 sm:pl-4">
                   <Text
                     size="h1"
-                    className="absolute text-[100px] md:text-[180px] leading-none text-white font-bold opacity-10 -top-10 md:-top-20 -left-5 md:-left-10"
+                    className="absolute text-[100px] md:text-[180px] leading-none text-white font-bold opacity-10 -top-0 md:-top-20 -left-10 md:-left-10"
                   >
                     {index < 9 ? `0${index + 1}` : index + 1}
                   </Text>

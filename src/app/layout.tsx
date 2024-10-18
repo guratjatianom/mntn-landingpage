@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair_display.variable} ${montserrat.variable} antialiased`}
+        className={`${playfair_display.variable} ${montserrat.variable} bg-dark antialiased`}
       >
-        <div className="absolute inset-0 z-0 w-full h-[6000px] md:h-[4300px]">
+        <div className="absolute inset-0 z-0 w-full md:w-full h-[3400px] md:h-[4300px]">
           <Image
             src={Pemandangan}
             alt="background image"

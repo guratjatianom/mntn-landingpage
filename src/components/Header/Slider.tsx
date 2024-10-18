@@ -75,7 +75,7 @@ export default function Slider() {
           </div>
         </div>
       </div>
-      <div className="flex md:hidden fixed bottom-10 left-[300px] justify-center items-center z-10 text-white">
+      {/* <div className="flex md:hidden fixed bottom-10 left-[300px] justify-center items-center z-10 text-white">
         <div className="flex flex-col text-center mr-[5px] space-y-4">
           <Text size="h8" className="font-bold">Start</Text>
           {["01", "02", "03"].map((item, index) => (
@@ -98,7 +98,7 @@ export default function Slider() {
             }}
           />
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

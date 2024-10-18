@@ -1,6 +1,6 @@
-import Gambar1 from "@/assets/Image/01.svg";
-import Gambar2 from "@/assets/Image/02.svg";
-import Gambar3 from "@/assets/Image/03.svg";
+import Gambar1 from "@/assets/Image/01.png";
+import Gambar2 from "@/assets/Image/02.png";
+import Gambar3 from "@/assets/Image/03.png";
 
 export const DataCard = [
     {

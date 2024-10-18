@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { PaddingContainer, Text } from '@/components/Common';
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";  
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Account from "@/assets/Image/account.svg";
 import Rectangle from "@/assets/Image/rectangle.svg";
 import Arrow from "@/assets/Image/arrow.svg";
@@ -28,7 +28,7 @@ export default function Header() {
     }, []);
 
     return (
-        <div className="relative top-0 inset-0 z-10">
+        <div className="relative top-0 inset-0 z-10 ">
             <PaddingContainer>
                 <Image
                     src={parallax}
@@ -37,10 +37,13 @@ export default function Header() {
                     style={{
                         width: "100vw",
                         height: "auto",
-                        top: `calc(768px - ${imagePosition}px)`,
+                        top: window.innerWidth < 768
+                            ? `calc(975px - ${imagePosition}px)`
+                            : `calc(768px - ${imagePosition}px)`,
                         transition: "top 0.1s ease-out",
                     }}
                 />
+
                 <div className="hidden md:flex w-full justify-between items-center mt-[40px]">
                     <div className="flex h-[24px] w-[108px] text-center items-center">
                         <Text size="h3" className="text-white">MNTN</Text>
@@ -57,7 +60,7 @@ export default function Header() {
                 </div>
                 <div className="flex md:hidden justify-between items-center mt-6">
                     <Text size="h3" className="text-white">MNTN</Text>
-                    <div onClick={() => setMenuOpen(!menuOpen)} className="cursor-pointer">
+                    <div onClick={() => setMenuOpen(!menuOpen)}>
                         {menuOpen ? <AiOutlineClose className="text-white text-2xl" /> : <AiOutlineMenu className="text-white text-2xl" />}
                     </div>
                 </div>
@@ -72,13 +75,13 @@ export default function Header() {
                         </div>
                     </div>
                 )}
-                <div className="absolute w-full md:w-[650px] h-[200px] top-[140px] md:top-[287px] md:left-[420px] gap-[32px] mt-0">
+                <div className="absolute w-[355px] md:w-[650px] h-[200px] top-[230px] md:top-[287px] md:left-[420px] mt-0">
                     <div className="flex justify-start md:justify-start">
                         <Image src={Rectangle} alt="rectangle" />
                         <Text size="h5" className="ml-4 md:ml-[24px] text-[#FBD784] tracking-[4px] md:tracking-[6px]">A HIKING GUIDE</Text>
                     </div>
                     <Text size="h1" className="text-white">Be prepared for the Mountains and beyond!</Text>
-                    
+
                     <div className="flex justify-start md:justify-start gap-2 mt-6 md:mt-4">
                         <Text size="h7" className="text-white">scroll down</Text>
                         <Image src={Arrow} alt="arrow" />
