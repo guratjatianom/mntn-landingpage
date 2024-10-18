@@ -7,7 +7,7 @@ import { Text } from "@/components/Common";
 
 export default function Card() {
   return (
-    <div className="pt-[1100px] md:pt-[1400px]">
+    <div className="pt-[900px] md:pt-[1400px]">
       {DataCard.slice(0, 3).map((content, index) => (
         <div
           key={index}
@@ -19,7 +19,7 @@ export default function Card() {
                 <div className="relative z-10 pt-10 sm:pt-5">
                   <Text
                     size="h1"
-                    className="absolute text-[100px] md:text-[180px] leading-none text-white opacity-10 -top-0 md:-top-20 -left-10 md:-left-10"
+                    className="absolute text-[100px] md:text-[180px] leading-none text-white opacity-10 -top-0 md:-top-20 -left-35 md:-left-10"
                   >
                     {index < 9 ? `0${index + 1}` : index + 1}
                   </Text>
@@ -70,10 +70,10 @@ export default function Card() {
                 />
               </div>
               <div className="relative col-span-1 order-2 md:order-none">
-                <div className="relative z-10 pt-10 pl-10 sm:pt-5 sm:pl-4">
+                <div className="relative z-10 pt-10 sm:pt-5 sm:pl-4">
                   <Text
                     size="h1"
-                    className="absolute text-[100px] md:text-[180px] leading-none text-white font-bold opacity-10 -top-0 md:-top-20 -left-10 md:-left-10"
+                    className="absolute text-[100px] md:text-[180px] leading-none text-white font-bold opacity-10 -top-0 md:-top-20 -left-35 md:-left-10"
                   >
                     {index < 9 ? `0${index + 1}` : index + 1}
                   </Text>

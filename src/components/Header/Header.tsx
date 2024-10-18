@@ -21,11 +21,9 @@ export default function Header() {
     };
 
     useEffect(() => {
-        // Pastikan hanya dijalankan di client-side
         if (typeof window !== "undefined") {
             window.addEventListener("scroll", handleScroll);
 
-            // Update posisi top berdasarkan lebar window
             const updateTopPosition = () => {
                 const position = window.innerWidth < 768
                     ? `calc(975px - ${imagePosition}px)`
@@ -47,7 +45,7 @@ export default function Header() {
     return (
         <div className="relative top-0 inset-0 z-10 ">
             <PaddingContainer>
-            <Image
+                <Image
                     src={parallax}
                     alt="parallax background"
                     className="z-0 absolute left-0"
@@ -79,17 +77,22 @@ export default function Header() {
                         {menuOpen ? <AiOutlineClose className="text-white text-2xl" /> : <AiOutlineMenu className="text-white text-2xl" />}
                     </div>
                 </div>
-                {menuOpen && (
-                    <div className="flex flex-col items-center space-y-4 mt-4 md:hidden">
-                        <Text size="h7" className="text-white cursor-pointer">Equipment</Text>
-                        <Text size="h7" className="text-white cursor-pointer">About Us</Text>
-                        <Text size="h7" className="text-white cursor-pointer">Blog</Text>
-                        <div className="flex items-center">
-                            <Image src={Account} alt="account" />
-                            <Text size="h7" className="text-white ml-2 cursor-pointer">Account</Text>
-                        </div>
+                <div
+                    className={`
+                        flex flex-col items-center space-y-4 mt-4 md:hidden
+                        transform ${menuOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}
+                        transition-transform duration-300 ease-in-out
+                    `}
+                >
+                    <Text size="h7" className="text-white cursor-pointer">Equipment</Text>
+                    <Text size="h7" className="text-white cursor-pointer">About Us</Text>
+                    <Text size="h7" className="text-white cursor-pointer">Blog</Text>
+                    <div className="flex items-center">
+                        <Image src={Account} alt="account" />
+                        <Text size="h7" className="text-white ml-2 cursor-pointer">Account</Text>
                     </div>
-                )}
+                </div>
+
                 <div className="absolute w-[355px] md:w-[650px] h-[200px] top-[230px] md:top-[287px] md:left-[420px] mt-0">
                     <div className="flex justify-start md:justify-start">
                         <Image src={Rectangle} alt="rectangle" />
