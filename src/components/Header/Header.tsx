@@ -13,6 +13,7 @@ import parallax from "@/assets/Image/parallax.png";
 export default function Header() {
     const [imagePosition, setImagePosition] = useState(0);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [topPosition, setTopPosition] = useState<string>("");
 
     const handleScroll = () => {
         const scrollTop = window.scrollY;
@@ -20,26 +21,40 @@ export default function Header() {
     };
 
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        // Pastikan hanya dijalankan di client-side
+        if (typeof window !== "undefined") {
+            window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+            // Update posisi top berdasarkan lebar window
+            const updateTopPosition = () => {
+                const position = window.innerWidth < 768
+                    ? `calc(975px - ${imagePosition}px)`
+                    : `calc(768px - ${imagePosition}px)`;
+                setTopPosition(position);
+            };
+
+            updateTopPosition();
+            window.addEventListener("resize", updateTopPosition);
+
+            return () => {
+                window.removeEventListener("scroll", handleScroll);
+                window.removeEventListener("resize", updateTopPosition);
+            };
+        }
+    }, [imagePosition]);
+
 
     return (
         <div className="relative top-0 inset-0 z-10 ">
             <PaddingContainer>
-                <Image
+            <Image
                     src={parallax}
                     alt="parallax background"
                     className="z-0 absolute left-0"
                     style={{
                         width: "100vw",
                         height: "auto",
-                        top: window.innerWidth < 768
-                            ? `calc(975px - ${imagePosition}px)`
-                            : `calc(768px - ${imagePosition}px)`,
+                        top: topPosition,
                         transition: "top 0.1s ease-out",
                     }}
                 />
