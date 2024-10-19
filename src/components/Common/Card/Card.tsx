@@ -7,7 +7,7 @@ import { Text } from "@/components/Common";
 
 export default function Card() {
   return (
-    <div className="pt-[900px] md:pt-[1400px]">
+    <div className="pt-[600px] md:pt-[1400px]">
       {DataCard.slice(0, 3).map((content, index) => (
         <div
           key={index}
