@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        playfair_display: "var(--playfair_display)",
-        montserrat: "var(--montserrat)",
+        volkhov: ["Playfair_Display", "serif"],
+        poppins: ["Montserrat", "sans-serif"],
       },
     },
   },
