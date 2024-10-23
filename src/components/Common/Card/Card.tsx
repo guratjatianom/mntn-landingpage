@@ -18,8 +18,7 @@ export default function Card() {
               <div className="relative col-span-1 order-2 md:order-none">
                 <div className="relative z-10 pt-10 sm:pt-5">
                   <Text
-                    size="h1"
-                    className="absolute text-[100px] md:text-[180px] leading-none text-white opacity-10 -top-0 md:-top-20 -left-35 md:-left-10 font-montserrat"
+                    className="absolute text-[100px] md:text-[180px] leading-none font-montserrat text-white opacity-10 -top-0 md:-top-20 -left-35 md:-left-10"
                   >
                     {index < 9 ? `0${index + 1}` : index + 1}
                   </Text>
@@ -72,8 +71,7 @@ export default function Card() {
               <div className="relative col-span-1 order-2 md:order-none">
                 <div className="relative z-10 pt-10 sm:pt-5 sm:pl-4">
                   <Text
-                    size="h1"
-                    className="absolute text-[100px] md:text-[180px] leading-none text-white font-bold opacity-10 -top-0 md:-top-20 -left-35 md:-left-10"
+                    className="absolute text-[100px] md:text-[180px] leading-none font-montserrat text-white font-bold opacity-10 -top-0 md:-top-20 -left-35 md:-left-10"
                   >
                     {index < 9 ? `0${index + 1}` : index + 1}
                   </Text>
